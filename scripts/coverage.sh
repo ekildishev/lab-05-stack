@@ -13,12 +13,4 @@ cmake -H. -B_builds $CMAKE_OPTS -DBUILD_COVERAGE=ON
 cmake --build _builds
 cmake --build _builds --target test
 cmake --build _builds --target gcov
-cmake --build _builds --target lcov
 gcovr -r  .
-
-REPORT_DATA=$(gcovr -r  . | base64 | tr -d '\n')
-POST_DATA="{\"report\": \"$REPORT_DATA\", \"slug\": \"$TRAVIS_REPO_SLUG\", \"head_branch\": \"$TRAVIS_BRANCH\", \"head_sha\": \"$TRAVIS_COMMIT\"}"
-
-if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then
-  curl -H "Content-Type: application/json" -d "$POST_DATA" -X POST http://borodin.dev.bmstu.cloud/api/coverage/
-fi
