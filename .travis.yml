@@ -1,7 +1,6 @@
 os: linux
 sudo: required
-language:
-  - minimal
+language: "minimal"
 services:
   - docker
 
@@ -13,6 +12,7 @@ jobs:
     - name: "coverage"
         script:
           - docker run -v `pwd`:`pwd` -w `pwd` -t rusdevops/bootstrap-cpp scripts/coverage.sh
+
 notifications:
   email: false
 
