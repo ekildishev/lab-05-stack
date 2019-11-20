@@ -50,11 +50,7 @@ endfunction (add_coverage)
 #   be defined here, because the module will be exited, if there is no coverage
 #   support by the compiler or it is disabled by the user.
 function (coverage_evaluate)
-	# add lcov evaluation
-	if (LCOV_FOUND)
-		lcov_capture_initial()
-		lcov_capture()
-	endif (LCOV_FOUND)
+
 endfunction ()
 
 
