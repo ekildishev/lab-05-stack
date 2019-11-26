@@ -53,3 +53,17 @@ TEST(Example, MoveTest)
 
 }
 
+TEST(Example, IsMoveConstructible)
+{
+    EXPECT_TRUE(std::is_move_constructible<usualStack<int>>());
+    using stackArgsCheck = std::is_move_constructible<stackArgs<std::pair<int, int>>>;
+    EXPECT_TRUE(stackArgsCheck ());
+}
+
+TEST(Example, IsMoveAssignable)
+{
+    EXPECT_TRUE(std::is_move_assignable<usualStack<double>>());
+    using stackArgsCheck = std::is_move_assignable<stackArgs<std::pair<int, double>>>;
+    EXPECT_TRUE(stackArgsCheck());
+}
+
