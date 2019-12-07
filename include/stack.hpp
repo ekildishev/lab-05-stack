@@ -3,31 +3,26 @@
 #include <utility>
 #include <exception>
 
-template <typename T>
-class stack
-{
+template<typename T>
+class stack {
 protected:
-    struct element
-    {
+    struct element {
         T data;
-        element* next;
+        element *next;
     };
     element *stackHead = nullptr;
 public:
     stack() = default;
-    virtual void push(T&& value)
-    {
+
+    virtual void push(T &&value) {
         auto elem = new element{std::forward<T>(value), stackHead};
         stackHead = elem;
     }
-    const T& head() const
-    {
-        if(stackHead == nullptr)
-        {
+
+    const T &head() const {
+        if (stackHead == nullptr) {
             throw std::exception();
-        }
-        else
-        {
+        } else {
             return stackHead->data;
         }
     }
