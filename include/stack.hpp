@@ -1,3 +1,5 @@
+// Copyright 2018 Your Name <ekildisev@gmail.com>
+
 #pragma once
 
 #include <utility>
