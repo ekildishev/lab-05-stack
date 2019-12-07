@@ -1,4 +1,4 @@
-// Copyright 2018 Your Name <ekildisev@gmail.com>
+// Copyright 2019 ekildishev
 
 #pragma once
 
