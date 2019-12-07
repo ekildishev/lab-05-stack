@@ -46,18 +46,19 @@ TEST(Example, MoveTest) {
     US.push(std::move(str));
     EXPECT_EQ(US.head(), "text");
     EXPECT_TRUE(str.empty());
-
 }
 
 TEST(Example, IsMoveConstructible) {
     EXPECT_TRUE(std::is_move_constructible<usualStack<int>>());
-    using stackArgsCheck = std::is_move_constructible<stackArgs<std::pair<int, int>>>;
+    using stackArgsCheck =
+            std::is_move_constructible<stackArgs<std::pair<int, int>>>;
     EXPECT_TRUE(stackArgsCheck());
 }
 
 TEST(Example, IsMoveAssignable) {
     EXPECT_TRUE(std::is_move_assignable<usualStack<double>>());
-    using stackArgsCheck = std::is_move_assignable<stackArgs<std::pair<int, double>>>;
+    using stackArgsCheck =
+            std::is_move_assignable<stackArgs<std::pair<int, double>>>;
     EXPECT_TRUE(stackArgsCheck());
 }
 
